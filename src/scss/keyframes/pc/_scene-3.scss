@@ -1,0 +1,27 @@
+@keyframes bigger-1 {
+    from {transform: scale(1);}
+    to {transform: scale(3);}
+}
+@keyframes bigger-2 {
+    from {transform: scale(0);}
+    to {transform: scale(3);}
+}
+@keyframes border-top-move {
+    from {border-top-width: 0vh;}
+    to {border-top-width: 100vh;}
+}
+
+@keyframes border-right-move {
+    from {border-right-width: 0vw;}
+    to {border-right-width: 100vw;}
+}
+
+@keyframes border-bottom-move {
+    from {border-bottom-width: 0vh;}
+    to {border-bottom-width: 100vh;}
+}
+
+@keyframes border-left-move {
+    from {border-left-width: 0vw;}
+    to {border-left-width: 100vw;}
+}

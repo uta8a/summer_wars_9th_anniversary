@@ -1,0 +1,22 @@
+@keyframes scale-inf {
+    0% {transform: scale(0.99);}
+    50% {transform: scale(1);}
+    100% {transform: scale(0.99);}
+}
+
+@keyframes gauge-full {
+    from {transform: translateY(100%);}
+    to {transform: translateY(0%);}
+}
+@keyframes turn1 {
+    from {transform: rotate(0);}
+    to {transform: rotate(2turn);}
+}
+@keyframes meteor {
+    from {transform: translateY(-100%);}
+    to {transform: translateY(1000%);}
+}
+@keyframes big-rectangle {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+}

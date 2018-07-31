@@ -1,0 +1,66 @@
+@keyframes colorchange {
+    from {background-color: #444;}
+    to {background-color: #fff;}
+}
+@keyframes downdown {
+    from {transform: translateY(-400%);}
+    to {transform: translateY(0);}
+}
+@keyframes tiny-motion {
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(30deg);}
+    100% {transform: rotate(0deg);}
+}
+@keyframes downdown2 {
+    from {transform: translateY(0) rotate(0deg);}
+    to {transform: translateY(400%) rotate(-60deg);}
+}
+@keyframes downdown3 {
+    from {transform: translateY(0) rotate(0deg);}
+    to {transform: translateY(200%) rotate(-60deg);}
+} 
+@keyframes to-right {
+    from {transform: translateX(-300%);}
+    to {transform: translateX(10%);}
+}
+@keyframes title {
+    from {transform: scale(10);}
+    to {transform: scale(1);}
+}
+@keyframes down-number {
+    from {transform: translateY(-700%);}
+    to {transform: translateY(0%);}
+}
+@keyframes slash-line-to-right {
+    from {transform: translateX(-100%);}
+    to {transform: translateX(0%);}
+}
+@keyframes slash-line-to-left {
+    from {transform: translateX(100%);}
+    to {transform: translateX(0%);}
+}
+@keyframes curtain-rail-left{
+    from {
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        transform: translateX(-100%);
+    }
+    to {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        transform: translateX(0%);
+    }
+}
+@keyframes curtain-rail-right{
+    from {
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        transform: translateX(100%);
+        
+    }
+    to {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        transform: translateX(0%);
+    }
+}

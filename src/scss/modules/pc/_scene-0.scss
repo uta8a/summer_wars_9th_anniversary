@@ -1,0 +1,273 @@
+@include pc-layout {
+    $square-long: 500px;
+    $circle-long: $square-long * 0.8;
+    #scene-0 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #000;
+        overflow: hidden;
+        z-index: 21;
+        .square-flash {
+            position: absolute;
+            width: $square-long;
+            height: $square-long;
+            top: calc(50% - #{$square-long / 2});
+            left: calc(50% - #{$square-long / 2});
+            background-color: #fff;
+            z-index: 22;
+            .inner {
+                position: absolute;
+                width: $square-long;
+                height: $square-long;
+                top: calc(50% - #{$square-long / 2});
+                left: calc(50% - #{$square-long / 2});
+                background-color: #000;
+                transform: scale(0.99);
+            }
+        }
+        .circle {
+            position: absolute;
+            width: $circle-long;
+            height: $circle-long;
+            top: calc(50% - #{$circle-long / 2});
+            left: calc(50% - #{$circle-long / 2});
+            background-color: #000;
+            border: 1px solid #fff;
+            overflow: hidden;
+            border-radius: 50%;
+            z-index: 23;
+            .inner {
+                position: absolute;
+                width: $circle-long;
+                height: $circle-long;
+                top: calc(50% - #{$circle-long / 2});
+                left: calc(50% - #{$circle-long / 2});
+                background-color: #fff;
+                transform: translateY(100%);
+            }
+        }
+        .star {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            div {
+                width: 1px;
+                height: 100%;
+                background-color: transparent;
+                overflow: hidden;
+                &::after {
+                    content: "";
+                    display: block;
+                    width: 1px;
+                    height: 100px;
+                    background-color: #fff;
+                    transform: translateY(-100%);
+                }
+                &:nth-child(1) {
+                    position: absolute;
+                    top: 100px;
+                    left: 100px;
+                    transform: rotate(10deg);
+                }
+                &:nth-child(2) {
+                    position: absolute;
+                    top: 200px;
+                    left: 100px;
+                    transform: rotate(20deg);
+                }
+                &:nth-child(3) {
+                    position: absolute;
+                    top: 50px;
+                    left: 200px;
+                    transform: rotate(10deg);
+                }
+                &:nth-child(4) {
+                    position: absolute;
+                    top: 70px;
+                    left: 200px;
+                    transform: rotate(20deg);
+                }
+                &:nth-child(5) {
+                    position: absolute;
+                    top: 200px;
+                    left: 300px;
+                    transform: rotate(10deg);
+                }
+                &:nth-child(6) {
+                    position: absolute;
+                    top: 100px;
+                    left: 300px;
+                    transform: rotate(20deg);
+                }
+                &:nth-child(7) {
+                    position: absolute;
+                    top: 100px;
+                    right: 100px;
+                    transform: rotate(10deg);
+                }
+                &:nth-child(8) {
+                    position: absolute;
+                    top: 200px;
+                    right: 100px;
+                    transform: rotate(20deg);
+                }
+                &:nth-child(9) {
+                    position: absolute;
+                    top: 50px;
+                    right: 200px;
+                    transform: rotate(10deg);
+                }
+                &:nth-child(10) {
+                    position: absolute;
+                    top: 70px;
+                    right: 200px;
+                    transform: rotate(20deg);
+                }
+                &:nth-child(11) {
+                    position: absolute;
+                    top: 200px;
+                    right: 300px;
+                    transform: rotate(10deg);
+                }
+                &:nth-child(12) {
+                    position: absolute;
+                    top: 100px;
+                    right: 300px;
+                    transform: rotate(20deg);
+                }
+            }
+        }
+        .end {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 24;
+            div {
+                position: absolute;
+                width: 100vw;
+                height: 100vh;
+                transform: scale(0);
+                &:nth-child(1) {
+                    background-color: #fff;
+                }
+                &:nth-child(2) {
+                    background-color: #000;
+                }
+                &:nth-child(3) {
+                    background-color: #fff;
+                }
+                &:nth-child(4) {
+                    background-color: #000;
+                }
+                &:nth-child(5) {
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+    // animation
+    #scene-0 {
+        .square-flash {
+            animation:
+                turn1 4s ease 0.5s forwards,
+                big-rectangle 0.8s ease 8s reverse forwards;
+            .inner {
+                animation: scale-inf 1.2s ease-in-out 4.5s infinite forwards;
+            }
+        }
+        .circle {
+            animation:
+                big-rectangle 0.8s ease 8s reverse forwards;
+            .inner {
+                animation: gauge-full 4s ease 0.5s forwards;
+            }
+        }
+        .star {
+            div {
+                &:nth-child(1) {
+                    &::after {
+                        animation: meteor 0.5s ease 0.5s forwards;
+                    }
+                }
+                &:nth-child(2) {
+                    &::after {
+                        animation: meteor 0.5s ease 0.7s forwards;
+                    }
+                }
+                &:nth-child(3) {
+                    &::after {
+                        animation: meteor 0.5s ease 0.9s forwards;
+                    }
+                }
+                &:nth-child(4) {
+                    &::after {
+                        animation: meteor 0.5s ease 1.1s forwards;
+                    }
+                }
+                &:nth-child(5) {
+                    &::after {
+                        animation: meteor 0.5s ease 1.3s forwards;
+                    }
+                }
+                &:nth-child(6) {
+                    &::after {
+                        animation: meteor 0.5s ease 1.5s forwards;
+                    }
+                }
+                &:nth-child(7) {
+                    &::after {
+                        animation: meteor 0.5s ease 1.6s forwards;
+                    }
+                }
+                &:nth-child(8) {
+                    &::after {
+                        animation: meteor 0.5s ease 1.2s forwards;
+                    }
+                }
+                &:nth-child(9) {
+                    &::after {
+                        animation: meteor 0.5s ease 0.8s forwards;
+                    }
+                }
+                &:nth-child(10) {
+                    &::after {
+                        animation: meteor 0.5s ease 0.6s forwards;
+                    }
+                }
+                &:nth-child(11) {
+                    &::after {
+                        animation: meteor 0.5s ease 1.4s forwards;
+                    }
+                }
+                &:nth-child(12) {
+                    &::after {
+                        animation: meteor 0.5s ease 1.0s forwards;
+                    }
+                }
+            }
+        }
+        .end {
+            div {
+                &:nth-child(1) {
+                    animation: big-rectangle 0.5s ease 8.9s forwards;
+                }
+                &:nth-child(2) {
+                    animation: big-rectangle 0.5s ease 9.0s forwards;
+                }
+                &:nth-child(3) {
+                    animation: big-rectangle 0.5s ease 9.1s forwards;
+                }
+                &:nth-child(4) {
+                    animation: big-rectangle 0.5s ease 9.2s forwards;
+                }
+                &:nth-child(5) {
+                    animation: big-rectangle 0.5s ease 9.3s forwards;
+                }
+            }
+        }
+    }
+}

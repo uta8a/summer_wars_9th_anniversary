@@ -1,0 +1,12 @@
+@keyframes slidedown {
+    from {transform: translateY(-100%);}
+    to {transform: translateY(0%);}
+}
+@keyframes slideup {
+    from {transform: translateY(100%);}
+    to {transform: translateY(0%);}
+}
+@keyframes stage-slideleft {
+    from {transform: translateX(0%);}
+    to {transform: translateX(-100%);}
+}

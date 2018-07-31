@@ -1,0 +1,96 @@
+@keyframes kkz-down {
+    0% {
+        transform: translateY(-200%);
+    }
+    20%,
+    80% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(200%);
+    }
+}
+
+@keyframes lvm-up {
+    0% {
+        transform: translateY(200%);
+    }
+    20%,
+    80% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-200%);
+    }
+}
+
+@keyframes error-down {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes door-move-left {
+    from {
+        transform: translateX(-50vw) translateY(-100vh) rotate(-30deg);
+    }
+    to {
+        transform: translateX(100vw) translateY(-100vh) rotate(-30deg);
+    }
+}
+
+@keyframes door-move-right {
+    from {
+        transform: translateX(100vw) translateY(-100vh) rotate(30deg);
+    }
+    to {
+        transform: translateX(-50vw) translateY(-100vh) rotate(30deg);
+    }
+}
+
+@keyframes round-bigger {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(10);
+    }
+}
+
+@keyframes slash-up {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slash-right {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes error-show {
+    0% {
+        transform: translateX(-100%);
+    }
+    80% {
+        transform: translateX(10%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+@keyframes flash {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}

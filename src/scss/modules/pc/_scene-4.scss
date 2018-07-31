@@ -1,0 +1,222 @@
+@include pc-layout {
+    $delay-scene-9: 0s;
+    #scene-4 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #444;
+        overflow: hidden;
+        z-index: 17;
+        .phone {
+            position: absolute;
+            width: 270px;
+            height: 540px;
+            left: calc(50% - 135px);
+            top: calc(50% - 270px);
+            border: 3px solid #fff;
+            background-color: #444;
+            border-radius: 10%;
+            opacity: 0;
+            .button {
+                position: relative;
+                width: 40px;
+                height: 40px;
+                left: calc(50% - 20px);
+                bottom: calc(-100% + 55px);
+                background-color: #444;
+                border: 3px solid #fff;
+                border-radius: 50%;
+            }
+            .display {
+                position: absolute;
+                width: 230px;
+                height: 420px;
+                left: calc(50% - 115px);
+                top: calc(50% - 225px);
+                background-color: #444;
+                overflow: hidden;
+                .mail {
+                    position: absolute;
+                    width: 100px;
+                    height: 100px;
+                    left: calc(50% - 50px);
+                    top: calc(50% - 50px);
+                    background-image: url(../assets/mail-red.png);
+                    background-position: center;
+                    background-size: cover;
+                    transform: translateY(-400%);
+                    transform-origin: bottom right;
+                }
+                .number {
+                    position: absolute;
+                    width: 220px;
+                    height: 425px;
+                    left: calc(50% - 110px);
+                    top: calc(50% - 212px);
+                    background-image: url(../assets/number.png);
+                    background-position: center;
+                    background-size: cover;
+                    transform: translateY(-700%);
+                }
+            }
+        }
+        .solveme {
+            position: absolute;
+            width: 472px;
+            height: 92px;
+            left: calc(50% - 236px);
+            top: calc(50% - 46px);
+            background-image: url(../assets/solveme.png);
+            background-position: center;
+            background-size: cover;
+            opacity: 0;
+        }
+        .line {
+            position: absolute;
+            width: 100%;
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: red;
+                transform: translateX(-100%);
+            }
+        }
+        .up {
+            top: calc(50% + 150px);
+        }
+        .down {
+            top: calc(50% - 150px);
+        }
+        .curtain-1 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            div {
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                background-color: #666;
+                &:nth-child(1) {
+                    left: 0;
+                    top: 0;
+                    border-radius: 0 50% 50% 0;
+                    transform: translateX(-100%);
+                }
+                &:nth-child(2) {
+                    left: 50%;
+                    top: 0;
+                    border-radius: 50% 0 0 50%;
+                    transform: translateX(100%);
+                }
+            }
+        }
+        .curtain-2 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            div {
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                background-color: #888;
+                &:nth-child(1) {
+                    left: 0;
+                    top: 0;
+                    border-radius: 0 50% 50% 0;
+                    transform: translateX(-100%);
+                }
+                &:nth-child(2) {
+                    left: 50%;
+                    top: 0;
+                    border-radius: 50% 0 0 50%;
+                    transform: translateX(100%);
+                }
+            }
+        }
+        .curtain-3 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            div {
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                background-color: #fff;
+                &:nth-child(1) {
+                    left: 0;
+                    top: 0;
+                    border-radius: 0 50% 50% 0;
+                    transform: translateX(-100%);
+                }
+                &:nth-child(2) {
+                    left: 50%;
+                    top: 0;
+                    border-radius: 50% 0 0 50%;
+                    transform: translateX(100%);
+                }
+            }
+        }
+    }
+    #scene-4[data-state="start"] {
+        .phone {
+            animation: showup 0.3s ease $delay-scene-9 + 0.5s forwards, downdown3 0.8s ease $delay-scene-9 + 4.0s forwards;
+            .display {
+                animation: colorchange 0.3s ease $delay-scene-9 + 0.9s forwards;
+                .mail {
+                    animation: downdown 0.5s ease-out $delay-scene-9 + 1.2s forwards, tiny-motion 0.3s ease $delay-scene-9 + 1.9s forwards 2, downdown2 0.5s ease-in $delay-scene-9 + 2.5s forwards;
+                }
+                .number {
+                    animation: down-number 1.0s ease $delay-scene-9 + 2.5s forwards;
+                }
+            }
+        }
+        .solveme {
+            animation: showup 0s ease $delay-scene-9 + 4.5s forwards, title 0.2s ease $delay-scene-9 + 4.5s forwards;
+        }
+        .up {
+            &::after {
+                animation: slash-line-to-right 0.5s ease $delay-scene-9 + 4.8s forwards;
+            }
+        }
+        .down {
+            &::after {
+                animation: slash-line-to-left 0.5s ease $delay-scene-9 + 4.8s forwards;
+            }
+        }
+        .curtain-1 {
+            div {
+                &:nth-child(1) {
+                    animation: curtain-rail-left 0.5s ease $delay-scene-9 + 5.5s forwards;
+                }
+                &:nth-child(2) {
+                    animation: curtain-rail-right 0.5s ease $delay-scene-9 + 5.5s forwards;
+                }
+            }
+        }
+        .curtain-2 {
+            div {
+                &:nth-child(1) {
+                    animation: curtain-rail-left 0.5s ease $delay-scene-9 + 5.8s forwards;
+                }
+                &:nth-child(2) {
+                    animation: curtain-rail-right 0.5s ease $delay-scene-9 + 5.8s forwards;
+                }
+            }
+        }
+        .curtain-3 {
+            div {
+                &:nth-child(1) {
+                    animation: curtain-rail-left 0.5s ease $delay-scene-9 + 6.1s forwards;
+                }
+                &:nth-child(2) {
+                    animation: curtain-rail-right 0.5s ease $delay-scene-9 + 6.1s forwards;
+                }
+            }
+        }
+    }
+}

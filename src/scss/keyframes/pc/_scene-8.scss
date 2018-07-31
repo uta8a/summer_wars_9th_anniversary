@@ -1,0 +1,32 @@
+@keyframes camera {
+    from {perspective: 190px;}
+    to {perspective: 800px;}
+}
+@keyframes r-scaler {
+    from {transform: rotate(0) scale(0);}
+    to {transform: rotate(180deg) scale(1);}
+}
+@keyframes slide-right {
+    from {transform: translateX(0%);}
+    to {transform: translateX(100.1%);}
+}
+@keyframes show-line {
+    from {transform: translateX(100%);}
+    to {transform: translateX(0%);}
+}
+@keyframes show-tada {
+    from {transform: translateX(-100%);}
+    to {transform: translateX(0%);}
+}
+@keyframes rain-scaler {
+    from {transform: scale(0);}
+    to {transform: scale(5);}
+}
+@keyframes blink-1 {
+    from {transform: translateY(0%);}
+    to {transform: translateY(-100%);}
+}
+@keyframes blink-2 {
+    from {transform: translateY(0%);}
+    to {transform: translateY(100%);}
+}

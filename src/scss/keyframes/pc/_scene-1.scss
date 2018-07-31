@@ -1,0 +1,108 @@
+@keyframes bigger-dot {
+    0% {
+        transform: scale(0);
+    }
+    90% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes dot-move-left {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(-200px);
+    }
+}
+
+@keyframes dot-move-right {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(200px);
+    }
+}
+
+@keyframes line-move-left {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes line-move-right {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes wrap-downup {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(200px);
+    }
+    100% {
+        transform: translateY(-200px);
+    }
+}
+
+@keyframes plate-showup {
+    0% {
+        transform: translateY(100%);
+    }
+    20%,
+    80% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes welcome {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes logo-showup {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes wrap-wrap-vanish {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes end-scaler {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(18);
+    }
+}

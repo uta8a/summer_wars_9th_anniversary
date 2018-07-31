@@ -1,0 +1,11 @@
+@mixin pc-layout {
+    @media screen and (min-width: 961px) {
+        @content;
+    }
+}
+
+@mixin other-layout {
+    @media screen and (max-width: 960px) {
+        @content;
+    }
+}

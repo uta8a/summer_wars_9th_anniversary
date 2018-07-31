@@ -1,0 +1,203 @@
+@include pc-layout {
+    $delay-scene-13: -1.0s;
+    $w: 300px;
+    $wbig: 400px;
+    #scene-6 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: 14;
+        .stage {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            div {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: #444;
+            }
+        }
+        .lovemachine {
+            position: absolute;
+            top: calc(50% - 232.5px * 0.7);
+            left: calc(50% - 264.5px * 0.7);
+            width: 529px * 0.7;
+            height: 465px * 0.7;
+            background-image: url(../assets/lvm0.png);
+            background-position: center;
+            background-size: cover;
+            opacity: 0;
+        }
+        .backwheel {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: transparent;
+            opacity: 0;
+            .circle {
+                position: absolute;
+                width: $w;
+                height: $w;
+                top: calc(50% - #{$w * 0.5});
+                left: calc(50% - #{$w * 0.5});
+                border-radius: 50%;
+                div {
+                    // transform-origin: center center;
+                    position: absolute;
+                    top: calc(50% - #{$w * 0.1 * 0.5} - #{$w * 0.8});
+                    left: calc(50% - #{$w * 0.1 * 0.5});
+                    width: $w * 0.1;
+                    height: $w * 0.1;
+                    background-color: gold;
+                    border-radius: 50%;
+                    transform: rotate(0deg);
+                }
+            }
+            .wheel {
+                position: absolute;
+                top: calc(50% - #{$w * 0.6});
+                left: calc(50% - #{$w * 0.6});
+                width: $w * 1.2;
+                height: $w * 1.2;
+                border-radius: 50%;
+                border: 30px solid gold;
+                transform: scale(0);
+            }
+        }
+        .back-big {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: transparent; // overflow: hidden;
+            opacity: 0;
+            .circle {
+                position: absolute;
+                width: $wbig;
+                height: $wbig;
+                top: calc(50% - #{$wbig * 0.5});
+                left: calc(50% - #{$wbig * 0.5});
+                border-radius: 50%;
+                div {
+                    // transform-origin: center center;
+                    position: absolute;
+                    top: calc(50% - #{$wbig * 0.1 * 0.5} - #{$wbig * 0.8});
+                    left: calc(50% - #{$wbig * 0.1 * 0.5});
+                    width: $wbig * 0.1;
+                    height: $wbig * 0.1;
+                    background-color: gold;
+                    border-radius: 50%;
+                    transform: rotate(0deg);
+                }
+            }
+            .wheel {
+                position: absolute;
+                top: calc(50% - #{$wbig * 0.6});
+                left: calc(50% - #{$wbig * 0.6});
+                width: $wbig * 1.2;
+                height: $wbig * 1.2;
+                border-radius: 50%;
+                border: 30px solid gold;
+                transform: scale(0);
+            }
+        }
+        .end {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            div {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                &:nth-child(2n - 1) {
+                    transform-origin: bottom right;
+                    transform: translateY(-100%) rotate(30deg);
+                }
+                &:nth-child(2n) {
+                    transform-origin: bottom left;
+                    transform: translateY(-100%) rotate(-30deg);
+                }
+                &:nth-child(1) {
+                    background-color: #CC0000;
+                }
+                &:nth-child(2) {
+                    background-color: #FFFF00;
+                }
+                &:nth-child(3) {
+                    background-color: #CC0000;
+                }
+            }
+        }
+    } // animation
+    #scene-6[data-state="start"] {
+        .lovemachine {
+            animation: showup 3.0s ease $delay-scene-13 + 1.0 + 0.5s + 0.8s + 0.3s + 0.2s forwards;
+        }
+        .backwheel {
+            animation: scaler 0.5s ease $delay-scene-13 + 1.0s forwards;
+        }
+        .back {
+            animation: showup 0s ease $delay-scene-13 + 1.0s forwards, rotate-360 3s ease-in-out $delay-scene-13 + 1.0s + 0.5s + 0.8s + 0.3s + 0.2s reverse forwards;
+            .circle {
+                @for $j from 1 through 8 {
+                    &:nth-child(#{$j}) {
+                        animation: rotate-#{$j * 45} $j * 0.1s ease $delay-scene-13+1.0s+0.5s+0.8s - $j * 0.1s forwards;
+                    }
+                }
+                div {
+                    animation: heightlong 0.3s ease $delay-scene-13 + 1.0s + 0.5s + 0.8s forwards;
+                }
+            }
+            .wheel {
+                animation: scaler 0.2s ease $delay-scene-13 + 1.0s + 0.5s + 0.8s + 0.3s forwards;
+            }
+        }
+        .back-big {
+            animation: showup 0s ease $delay-scene-13 + 1.0s forwards, rotate-360 3s ease-in-out $delay-scene-13 + 1.0s + 0.5s + 0.8s + 0.3s + 0.2s forwards;
+            .circle {
+                @for $j from 1 through 8 {
+                    &:nth-child(#{$j}) {
+                        animation: rotate-#{$j * 45} $j * 0.1s ease $delay-scene-13+1.0s+0.5s+0.8s - $j * 0.1s forwards;
+                    }
+                }
+                div {
+                    animation: heightlong 0.3s ease $delay-scene-13 + 1.0s + 0.5s + 0.8s forwards;
+                }
+            }
+            .wheel {
+                animation: scaler-big 0.2s ease $delay-scene-13 + 1.0s + 0.5s + 0.8s + 0.3s forwards;
+            }
+        }
+        .end {
+            div {
+                &:nth-child(1) {
+                    animation: fall-1 0.5s ease 5.0s forwards;
+                }
+                &:nth-child(2) {
+                    animation: fall-2 0.5s ease 5.2s forwards;
+                }
+                &:nth-child(3) {
+                    animation: fall-1 0.5s ease 5.4s forwards;
+                }
+            }
+        }
+    }
+}

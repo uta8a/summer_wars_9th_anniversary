@@ -1,0 +1,178 @@
+@include pc-layout {
+    #scene-1 {
+        z-index: 20;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        overflow: hidden;
+        .wrap-wrap {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .wrap {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            .dot-wrap {
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                left: calc(50% - 20px);
+                top: calc(50% - 20px);
+                transform: scale(0);
+                .dot {
+                    position: absolute;
+                    width: 40px;
+                    height: 40px;
+                    left: calc(50% - 20px);
+                    top: calc(50% - 20px);
+                    background-color: #000;
+                    border-radius: 50%;
+                }
+            }
+            .line-wrap {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                .line {
+                    position: absolute;
+                    height: 2px;
+                    width: 200px;
+                    top: calc(50% - 1px);
+                    overflow: hidden;
+                    &::after {
+                        content: "";
+                        display: block;
+                        height: 2px;
+                        width: 200px;
+                        background-color: #000;
+                    }
+                    &:nth-child(1) {
+                        left: calc(50% - 200px);
+                        &::after {
+                            transform: translateX(100%);
+                        }
+                    }
+                    &:nth-child(2) {
+                        left: calc(50%);
+                        &::after {
+                            transform: translateX(-100%);
+                        }
+                    }
+                }
+            }
+        }
+        .cover {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: calc(50% - 200px);
+            left: calc(50% - 200px);
+            overflow: hidden;
+            .plate {
+                width: 400px;
+                height: 400px;
+                top: calc(50% - 200px);
+                left: calc(50% - 200px);
+                background-color: #555;
+                transform: translateY(100%);
+                .welcome {
+                    $width: 271px;
+                    $height: 47px;
+                    position: absolute;
+                    top: calc(50% - #{$height / 2});
+                    left: calc(50% - #{$width / 2});
+                    width: $width;
+                    height: $height;
+                    background-image: url(../assets/welcome.png);
+                    background-position: center;
+                    background-size: cover;
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: calc(50% - #{$height / 2});
+                        left: calc(50% - #{$width / 2});
+                        width: $width;
+                        height: $height;
+                        background-color: #555;
+                    }
+                }
+            }
+            .logo {
+                position: absolute;
+                top: calc(50% - 200px);
+                left: calc(50% - 112.5px);
+                width: 225px;
+                height: 400px; // 447*790比を保つ
+                background-image: url(../assets/oz.png);
+                background-position: center;
+                background-size: cover;
+                transform: translateY(100%);
+            }
+        }
+        .end {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #000;
+            top: calc(50% - 85px - 50px);
+            left: calc(50% - 50px);
+            transform: scale(0);
+        }
+    } // animation
+    #scene-1[data-state="start"] {
+        .wrap-wrap {
+            animation: wrap-wrap-vanish 0.5s linear 3.9s forwards;
+        }
+        .wrap {
+            animation: wrap-downup 0.8s ease 1.5s forwards;
+        }
+        .dot-wrap {
+            animation: bigger-dot 0.2s ease 0.5s forwards;
+            .dot {
+                &:nth-child(1) {
+                    animation: dot-move-left 0.5s ease 0.9s forwards;
+                }
+                &:nth-child(2) {
+                    animation: dot-move-right 0.5s ease 0.9s forwards;
+                }
+            }
+        }
+        .line-wrap {
+            .line {
+                &:nth-child(1) {
+                    &::after {
+                        animation: line-move-left 0.5s ease 0.9s forwards;
+                    }
+                }
+                &:nth-child(2) {
+                    &::after {
+                        animation: line-move-right 0.4s ease-in-out 0.9s forwards;
+                    }
+                }
+            }
+        }
+        .cover {
+            .plate {
+                animation: plate-showup 2.0s ease 1.9s forwards;
+                .welcome {
+                    &::after {
+                        animation: welcome 0.6s ease 2.3s forwards;
+                    }
+                }
+            }
+            .logo {
+                animation: logo-showup 0.4s ease 3.5s forwards;
+            }
+        }
+        .end {
+            animation: end-scaler 0.6s ease 4.1s forwards;
+        }
+    }
+}

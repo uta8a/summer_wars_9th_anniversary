@@ -1,0 +1,276 @@
+@include pc-layout {
+    #scene-9 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        overflow: hidden;
+        z-index: 6;
+        .curtain {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            div {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                transform: translateY(-100%);
+                border-radius: 0 0 50% 50%;
+                &:nth-child(1) {
+                    background-color: #000;
+                }
+                &:nth-child(2) {
+                    background-color: #444;
+                }
+            }
+        }
+        .ui-wrap {
+            position: absolute;
+            $width: 1000px;
+            $height: 650px;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: #999;
+            transform: translateY(-100%);
+            border-radius: 0 0 50% 50%;
+            .ui {
+                position: absolute;
+                width: $width;
+                height: $height;
+                top: calc(50% - #{$height / 2});
+                left: calc(50% - #{$width / 2});
+                background-image: url(../assets/ui.png);
+                background-position: center;
+                background-size: cover;
+            }
+        }
+        .dot-wrap {
+            position: absolute;
+            transform: translateY(-100%);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            .dot {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                top: calc(50% - 10px);
+                left: calc(50% - 10px);
+                background-color: #fff;
+                border-radius: 50%;
+            }
+        }
+        .slide-top {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            div {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                transform: translateY(100%);
+                &:nth-child(1) {
+                    background-color: #fff;
+                }
+                &:nth-child(2) {
+                    background-color: #000;
+                }
+                &:nth-child(3) {
+                    background-color: #fff;
+                }
+                &:nth-child(4) {
+                    background-color: #000;
+                }
+                &:nth-child(5) {
+                    background-color: #fff;
+                }
+            }
+        }
+        .slide-bottom {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            top: 50%;
+            left: 0;
+            overflow: hidden;
+            div {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                transform: translateY(-100%);
+                &:nth-child(1) {
+                    background-color: #fff;
+                }
+                &:nth-child(2) {
+                    background-color: #000;
+                }
+                &:nth-child(3) {
+                    background-color: #fff;
+                }
+                &:nth-child(4) {
+                    background-color: #000;
+                }
+                &:nth-child(5) {
+                    background-color: #fff;
+                }
+            }
+        }
+        .yoro-wrap {
+            position: absolute;
+            $width: 706px;
+            $height: 51px;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: transparent;
+            .wrap {
+                position: absolute;
+                width: $width;
+                height: $height;
+                top: calc(50% - #{$height / 2});
+                left: calc(50% - #{$width / 2});
+                .yoro {
+                    position: absolute;
+                    width: $width;
+                    height: $height;
+                    top: calc(50% - #{$height / 2});
+                    left: calc(50% - #{$width / 2});
+                    background-image: url(../assets/yoro.png);
+                    background-position: center;
+                    background-size: cover;
+                    transform: scale(10);
+                    opacity: 0;
+                }
+            }
+        }
+        .end {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            div {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                transform-origin: right top;
+                transform: rotate(90deg);
+                &:nth-child(1) {
+                    background-color: #D3DEF1;
+                }
+                &:nth-child(2) {
+                    background-color: #CC0000;
+                }
+                &:nth-child(3) {
+                    background-color: #86B81B;
+                }
+                &:nth-child(4) {
+                    background-color: #00A0E9;
+                }
+                &:nth-child(5) {
+                    background-color: #1D2088;
+                }
+            }
+        }
+    }
+    #scene-9[data-state="start"] {
+        .curtain {
+            div {
+                &:nth-child(1) {
+                    animation: ui-down 0.3s ease-out 0.1s forwards;
+                }
+                &:nth-child(2) {
+                    animation: ui-down 0.3s ease-out 0.3s forwards;
+                }
+            }
+        }
+        .ui-wrap {
+            animation: ui-down 0.3s ease-out 0.5s forwards;
+        }
+        .dot-wrap {
+            animation: dot-wrap-show 0.2s ease 1.6s forwards;
+            .dot {
+                animation: dot-tf 0.5s ease 1.8s forwards;
+            }
+        }
+        .slide-top {
+            div {
+                &:nth-child(1) {
+                    animation: slide-top-show 0.4s ease 2.4s forwards;
+                }
+                &:nth-child(2) {
+                    animation: slide-top-show 0.4s ease 2.5s forwards;
+                }
+                &:nth-child(3) {
+                    animation: slide-top-show 0.4s ease 2.6s forwards;
+                }
+                &:nth-child(4) {
+                    animation: slide-top-show 0.4s ease 2.7s forwards;
+                }
+                &:nth-child(5) {
+                    animation: slide-top-show 0.4s ease 2.8s forwards;
+                }
+            }
+        }
+        .slide-bottom {
+            div {
+                &:nth-child(1) {
+                    animation: slide-bottom-show 0.4s ease 2.4s forwards;
+                }
+                &:nth-child(2) {
+                    animation: slide-bottom-show 0.4s ease 2.5s forwards;
+                }
+                &:nth-child(3) {
+                    animation: slide-bottom-show 0.4s ease 2.6s forwards;
+                }
+                &:nth-child(4) {
+                    animation: slide-bottom-show 0.4s ease 2.7s forwards;
+                }
+                &:nth-child(5) {
+                    animation: slide-bottom-show 0.4s ease 2.8s forwards;
+                }
+            }
+        }
+        .yoro-wrap {
+            .wrap {
+                .yoro {
+                    animation: yoro-show 0.2s ease 3.3s forwards;
+                }
+            }
+        }
+        .end {
+            div {
+                &:nth-child(1) {
+                    animation: end-rotate 0.3s ease 4.5s forwards;
+                }
+                &:nth-child(2) {
+                    animation: end-rotate 0.3s ease 4.6s forwards;
+                }
+                &:nth-child(3) {
+                    animation: end-rotate 0.3s ease 4.7s forwards;
+                }
+                &:nth-child(4) {
+                    animation: end-rotate 0.3s ease 4.8s forwards;
+                }
+                &:nth-child(5) {
+                    animation: end-rotate 0.3s ease 4.9s forwards;
+                }
+            }
+        }
+    }
+}

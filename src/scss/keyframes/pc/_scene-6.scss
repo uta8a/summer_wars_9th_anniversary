@@ -1,0 +1,31 @@
+$w: 300px;
+@for $j from 1 through 8 {
+    @keyframes rotate-#{$j * 45} {
+        from {transform: rotate(0deg);}
+        to {transform: rotate(#{$j * 45}deg);}
+    }
+}
+@keyframes heightlong {
+    from {height: $w * 0.1;}
+    to {height: $w * 0.3; border-radius: 50%;}
+}
+@keyframes scaler {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+}
+@keyframes scaler-big {
+    from {transform: scale(0);}
+    to {transform: scale(1.1);}
+}
+@keyframes stage-move {
+    from {transform: translateY(0%);}
+    to {transform: translateY(100%);}
+}
+@keyframes fall-1 {
+    from { transform: translateY(-100%) rotate(30deg); }
+    to   { transform: translateY(0%) rotate(0deg); }
+  }
+  @keyframes fall-2 {
+    from { transform: translateY(-100%) rotate(-30deg); }
+    to   { transform: translateY(0%) rotate(0deg); }
+  }

@@ -1,0 +1,250 @@
+@include pc-layout {
+    #scene-7 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #CC0000;
+        overflow: hidden;
+        z-index: 9;
+        .square {
+            $length: 550px;
+            $width: 2px;
+            position: absolute;
+            width: $length;
+            height: $length;
+            top: calc(50% - #{$length / 2});
+            left: calc(50% - #{$length / 2});
+            .line-1 {
+                position: absolute;
+                width: $length;
+                height: $width;
+                background-color: transparent;
+                overflow: hidden;
+                div {
+                    position: absolute;
+                    width: $length;
+                    height: $width;
+                    background-color: #fff;
+                    transform: translateX(-100%);
+                }
+            }
+            .line-2 {
+                position: absolute;
+                width: $width;
+                height: $length;
+                background-color: transparent;
+                overflow: hidden;
+                div {
+                    position: absolute;
+                    width: $width;
+                    height: $length;
+                    background-color: #fff;
+                    transform: translateY(-100%);
+                }
+            }
+            .right {
+                right: 0;
+            }
+            .bottom {
+                transform: rotate(180deg);
+                bottom: 0;
+            }
+            .left {
+                transform: rotate(180deg);
+            }
+        }
+        .error-stage {
+            $error-width: 436px * 0.8;
+            $error-height: 391px * 0.8;
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            top: calc(50% - 250px);
+            left: calc(50% - 250px);
+            overflow: hidden;
+            .error-wrap {
+                position: absolute;
+                width: 500px;
+                height: 500px;
+                transform: translateX(-100%);
+                .alert {
+                    position: absolute;
+                    width: 436px * 0.8;
+                    height: 391px * 0.8;
+                    top: calc(50% - 436px * 0.8 * 0.5 - 50px);
+                    left: calc(50% - #{$error-width} / 2);
+                    background-color: #CC0000;
+                    background-image: url(../assets/alert.png);
+                    background-position: center;
+                    background-size: cover;
+                    z-index: 10;
+                }
+                .error {
+                    position: absolute;
+                    color: white;
+                    font-family: fantasy;
+                    z-index: 9;
+                    width: $error-width;
+                    top: calc(50% + #{$error-height} / 2 - 3.5% - 50px);
+                    left: calc(50% - #{$error-width} / 2);
+                    font-size: $error-width * 0.3;
+                    text-align: center;
+                    border-bottom: 3px #FCF929 solid;
+                }
+            }
+        }
+        .kkz-wrap {
+            position: absolute;
+            $width: 530px;
+            $height: 530px;
+            width: $width;
+            height: $height;
+            top: calc(50% - #{$height / 2});
+            left: calc(25% - #{$width / 2});
+            overflow: hidden;
+            background-color: #000;
+            z-index: 12;
+            transform: translateY(-200%);
+            .kkz {
+                $width_: 591px * 0.8;
+                $height_: 679px * 0.8;
+                position: absolute;
+                width: $width_;
+                height: $height_;
+                top: calc(50% - #{$height_ / 2});
+                left: calc(50% - #{$width_ / 2});
+                background-image: url(../assets/kkz.png);
+                background-position: center;
+                background-size: cover;
+            }
+        }
+        .lvm-wrap {
+            position: absolute;
+            $width: 530px;
+            $height: 530px;
+            width: $width;
+            height: $height;
+            top: calc(50% - #{$height / 2});
+            left: calc(75% - #{$width / 2});
+            overflow: hidden;
+            background-color: #fff;
+            z-index: 12;
+            transform: translateY(200%);
+            .lvm {
+                $width_: 651px * 0.9;
+                $height_: 503px * 0.9;
+                position: absolute;
+                width: $width_;
+                height: $height_;
+                top: calc(50% - #{$height_ / 2} + 40px);
+                left: calc(50% - #{$width_ / 2});
+                background-image: url(../assets/lvm1.png);
+                background-position: center;
+                background-size: cover;
+            }
+        }
+        .door-wrap {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            overflow: hidden;
+            z-index: 11;
+            .door {
+                position: absolute;
+                width: 50%;
+                height: 200%;
+                &:nth-child(1) {
+                    background-color: #000;
+                    transform-origin: bottom right;
+                    transform: translateX(-50vw) translateY(-100vh) rotate(-30deg);
+                }
+                &:nth-child(2) {
+                    background-color: #fff;
+                    transform-origin: bottom left;
+                    transform: translateX(100vw) translateY(-100vh) rotate(30deg);
+                }
+            }
+        }
+        .end {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: 13;
+            .high {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                transform: scale(0);
+                top: calc(0% - 100px);
+                left: calc(0% - 100px);
+                background-color: #444;
+            }
+            .low {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                transform: scale(0);
+                top: calc(100% - 100px);
+                left: calc(100% - 100px);
+                background-color: #444;
+            }
+        }
+    }
+    #scene-7[data-state="start"] {
+        .square {
+            animation: vanish 0.2s ease 1.4s forwards;
+            .top {
+                div {
+                    animation: slash-up 0.2s linear 0.2s forwards;
+                }
+            }
+            .right {
+                div {
+                    animation: slash-right 0.2s linear 0.4s forwards;
+                }
+            }
+            .bottom {
+                div {
+                    animation: slash-up 0.2s linear 0.6s forwards;
+                }
+            }
+            .left {
+                div {
+                    animation: slash-right 0.2s linear 0.8s forwards;
+                }
+            }
+        }
+        .error-wrap {
+            animation: error-show 0.3s ease 1.0s forwards, flash 1.0s ease 1.6s infinite forwards;
+        }
+        .kkz-wrap {
+            animation: kkz-down 1.5s ease 5.5s forwards;
+        }
+        .lvm-wrap {
+            animation: lvm-up 1.5s ease 5.5s forwards;
+        }
+        .door-wrap {
+            .door {
+                &:nth-child(1) {
+                    animation: door-move-left 0.5s ease 5.0s forwards;
+                }
+                &:nth-child(2) {
+                    animation: door-move-right 0.5s ease 5.0s forwards;
+                }
+            }
+        }
+        .end {
+            .high {
+                animation: round-bigger 0.5s ease 7.0s forwards;
+            }
+            .low {
+                animation: round-bigger 0.5s ease 7.0s forwards;
+            }
+        }
+    }
+}

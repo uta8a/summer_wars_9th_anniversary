@@ -1,0 +1,360 @@
+@include pc-layout {
+    // variable
+    $circle-radius: 120px;
+    $circle-radius-small: 20px;
+    $num1: ( 1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:16, 10:24, 11:32, 12:40, 13:48, 14:56, 15:64);
+    $num2: ( 2:9, 3:10, 4:11, 5:12, 6:13, 7:14, 8:15, 9:23, 10:31, 11:39, 12:47, 13:55, 14:63);
+    $num3: ( 3:17, 4:18, 5:19, 6:20, 7:21, 8:22, 9:30, 10:38, 11:46, 12:54, 13:62);
+    $num4: ( 4:25, 5:26, 6:27, 7:28, 8:29, 9:37, 10:45, 11:53, 12:61);
+    $num5: ( 5:33, 6:34, 7:35, 8:36, 9:44, 10:52, 11:60); // ここから
+    $num6: ( 6:41, 7:42, 8:43, 9:51, 10:59);
+    $num7: ( 7:49, 8:50, 9:58);
+    $num8: ( 8:57); // style
+    #scene-3 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        z-index: 18;
+        .circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            div {
+                position: absolute;
+                width: $circle-radius*2;
+                height: $circle-radius*2;
+                top: calc(50% - #{$circle-radius});
+                left: calc(50% - #{$circle-radius});
+                &::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: $circle-radius*2;
+                    height: $circle-radius*2;
+                    top: calc(50% - #{$circle-radius});
+                    left: calc(50% - #{$circle-radius});
+                    border-radius: 50%;
+                    background-color: skyblue;
+                }
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: $circle-radius*2;
+                    height: $circle-radius*2;
+                    top: calc(50% - #{$circle-radius});
+                    left: calc(50% - #{$circle-radius});
+                    border-radius: 50%;
+                    background-color: #ffffff;
+                }
+            }
+            div:nth-child(1) {
+                &::before {
+                    transform: scale(1);
+                }
+                &::after {
+                    transform: scale(0);
+                }
+            }
+            div:nth-child(2) {
+                &::before {
+                    transform: scale(0);
+                }
+                &::after {
+                    transform: scale(0);
+                }
+            }
+        }
+        .square {
+            opacity: 0;
+            .circles {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: calc(50% - 250px);
+                left: calc(50% - 250px);
+                div {
+                    position: absolute;
+                    &::before {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        width: $circle-radius-small*2;
+                        height: $circle-radius-small*2; // top: calc(50% - #{$circle-radius-small});left: calc(50% - #{$circle-radius-small});
+                        border-radius: 50%;
+                        background-color: skyblue;
+                    }
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        width: $circle-radius-small*2;
+                        height: $circle-radius-small*2; // top: calc(50% - #{$circle-radius-small});left: calc(50% - #{$circle-radius-small});
+                        border-radius: 50%;
+                        background-color: #ffffff;
+                    }
+                }
+                @for $i from 0 through 8 {
+                    @for $j from 0 through 8 {
+                        div:nth-child(#{2*($i*8 + $j + 1) - 1}) {
+                            &::before {
+                                top: $i * 70px;
+                                left: $j * 70px;
+                                transform: scale(1);
+                            }
+                            &::after {
+                                transform: scale(0);
+                                top: $i * 70px;
+                                left: $j * 70px;
+                            }
+                        }
+                        div:nth-child(#{2*($i*8 + $j + 1)}) {
+                            &::before {
+                                top: $i * 70px;
+                                left: $j * 70px;
+                                transform: scale(0);
+                            }
+                            &::after {
+                                transform: scale(0);
+                                top: $i * 70px;
+                                left: $j * 70px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .screen-1 {
+            position: absolute;
+            width: 200vw;
+            height: 200vh;
+            top: 0;
+            left: 0;
+            div {
+                position: absolute;
+                &:nth-child(1) {
+                    top: 0;
+                    left: 0;
+                    border-top-color: #FFD464;
+                    border-top-style: solid;
+                    border-right-color: transparent;
+                    border-right-style: solid;
+                    border-bottom-color: transparent;
+                    border-bottom-style: solid;
+                    border-left-color: #FFD464;
+                    border-left-style: solid;
+                }
+                &:nth-child(2) {
+                    top: 0;
+                    left: 0;
+                    border-top-color: #F26964;
+                    border-top-style: solid;
+                    border-right-color: transparent;
+                    border-right-style: solid;
+                    border-bottom-color: transparent;
+                    border-bottom-style: solid;
+                    border-left-color: #F26964;
+                    border-left-style: solid;
+                }
+                &:nth-child(3) {
+                    top: 0;
+                    left: 0;
+                    border-top-color: #1253A4;
+                    border-top-style: solid;
+                    border-right-color: transparent;
+                    border-right-style: solid;
+                    border-bottom-color: transparent;
+                    border-bottom-style: solid;
+                    border-left-color: #1253A4;
+                    border-left-style: solid;
+                }
+                &:nth-child(4) {
+                    top: 0;
+                    left: 0;
+                    border-top-color: #444;
+                    border-top-style: solid;
+                    border-right-color: transparent;
+                    border-right-style: solid;
+                    border-bottom-color: transparent;
+                    border-bottom-style: solid;
+                    border-left-color: #444;
+                    border-left-style: solid;
+                }
+            }
+        }
+    } // animation
+    #scene-3[data-state="start"] {
+        .circle {
+            div:nth-child(1) {
+                &::before {
+                    animation: bigger-1 0.5s ease 0.5s forwards;
+                }
+                &::after {
+                    animation: bigger-1 0.4s ease 0.6s forwards;
+                }
+            }
+            div:nth-child(2) {
+                &::before {
+                    animation: bigger-2 0.4s ease 0.7s forwards;
+                }
+                &::after {
+                    animation: bigger-2 0.3s ease 0.8s forwards;
+                }
+            }
+        }
+        .square {
+            animation: showup 0s ease 1.1s forwards;
+        }
+        @for $i from 1 through 64 {
+            .square .circles div:nth-child(#{2*$i - 1})::before {
+                animation: bigger-1 0.5s ease $i*0.1+1.0s forwards;
+            }
+            .square .circles div:nth-child(#{2*$i - 1})::after {
+                animation: bigger-1 0.4s ease $i*0.1+0.1+1.0s forwards;
+            }
+            .square .circles div:nth-child(#{2*$i})::before {
+                animation: bigger-2 0.4s ease $i*0.1+0.1+0.1+1.0s forwards;
+            }
+            .square .circles div:nth-child(#{2*$i})::after {
+                animation: bigger-2 0.3s ease $i*0.1+0.1+0.1+0.1+1.0s forwards;
+            }
+        }
+        @each $i,
+        $j in $num1 {
+            .square .circles div:nth-child(#{2*$j - 1})::before {
+                animation-delay: $i*0.1 + 1.1s;
+            }
+            .square .circles div:nth-child(#{2*$j - 1})::after {
+                animation-delay: $i*0.1 + 1.2s;
+            }
+            .square .circles div:nth-child(#{2*$j})::before {
+                animation-delay: $i*0.1 + 1.3s;
+            }
+            .square .circles div:nth-child(#{2*$j})::after {
+                animation-delay: $i*0.1 + 1.4s;
+            }
+        }
+        @each $i,
+        $j in $num2 {
+            .square .circles div:nth-child(#{2*$j - 1})::before {
+                animation-delay: $i*0.1 + 1.1s;
+            }
+            .square .circles div:nth-child(#{2*$j - 1})::after {
+                animation-delay: $i*0.1 + 1.2s;
+            }
+            .square .circles div:nth-child(#{2*$j})::before {
+                animation-delay: $i*0.1 + 1.3s;
+            }
+            .square .circles div:nth-child(#{2*$j})::after {
+                animation-delay: $i*0.1 + 1.4s;
+            }
+        }
+        @each $i,
+        $j in $num3 {
+            .square .circles div:nth-child(#{2*$j - 1})::before {
+                animation-delay: $i*0.1 + 1.1s;
+            }
+            .square .circles div:nth-child(#{2*$j - 1})::after {
+                animation-delay: $i*0.1 + 1.2s;
+            }
+            .square .circles div:nth-child(#{2*$j})::before {
+                animation-delay: $i*0.1 + 1.3s;
+            }
+            .square .circles div:nth-child(#{2*$j})::after {
+                animation-delay: $i*0.1 + 1.4s;
+            }
+        }
+        @each $i,
+        $j in $num4 {
+            .square .circles div:nth-child(#{2*$j - 1})::before {
+                animation-delay: $i*0.1 + 1.1s;
+            }
+            .square .circles div:nth-child(#{2*$j - 1})::after {
+                animation-delay: $i*0.1 + 1.2s;
+            }
+            .square .circles div:nth-child(#{2*$j})::before {
+                animation-delay: $i*0.1 + 1.3s;
+            }
+            .square .circles div:nth-child(#{2*$j})::after {
+                animation-delay: $i*0.1 + 1.4s;
+            }
+        }
+        @each $i,
+        $j in $num5 {
+            .square .circles div:nth-child(#{2*$j - 1})::before {
+                animation-delay: $i*0.1 + 1.1s;
+            }
+            .square .circles div:nth-child(#{2*$j - 1})::after {
+                animation-delay: $i*0.1 + 1.2s;
+            }
+            .square .circles div:nth-child(#{2*$j})::before {
+                animation-delay: $i*0.1 + 1.3s;
+            }
+            .square .circles div:nth-child(#{2*$j})::after {
+                animation-delay: $i*0.1 + 1.4s;
+            }
+        }
+        @each $i,
+        $j in $num6 {
+            .square .circles div:nth-child(#{2*$j - 1})::before {
+                animation-delay: $i*0.1 + 1.1s;
+            }
+            .square .circles div:nth-child(#{2*$j - 1})::after {
+                animation-delay: $i*0.1 + 1.2s;
+            }
+            .square .circles div:nth-child(#{2*$j})::before {
+                animation-delay: $i*0.1 + 1.3s;
+            }
+            .square .circles div:nth-child(#{2*$j})::after {
+                animation-delay: $i*0.1 + 1.4s;
+            }
+        }
+        @each $i,
+        $j in $num7 {
+            .square .circles div:nth-child(#{2*$j - 1})::before {
+                animation-delay: $i*0.1 + 1.1s;
+            }
+            .square .circles div:nth-child(#{2*$j - 1})::after {
+                animation-delay: $i*0.1 + 1.2s;
+            }
+            .square .circles div:nth-child(#{2*$j})::before {
+                animation-delay: $i*0.1 + 1.3s;
+            }
+            .square .circles div:nth-child(#{2*$j})::after {
+                animation-delay: $i*0.1 + 1.4s;
+            }
+        }
+        @each $i,
+        $j in $num8 {
+            .square .circles div:nth-child(#{2*$j - 1})::before {
+                animation-delay: $i*0.1 + 1.1s;
+            }
+            .square .circles div:nth-child(#{2*$j - 1})::after {
+                animation-delay: $i*0.1 + 1.2s;
+            }
+            .square .circles div:nth-child(#{2*$j})::before {
+                animation-delay: $i*0.1 + 1.3s;
+            }
+            .square .circles div:nth-child(#{2*$j})::after {
+                animation-delay: $i*0.1 + 1.4s;
+            }
+        }
+        .screen-1 {
+            div {
+                &:nth-child(1) {
+                    animation: border-top-move 1s ease 2.5s + 0.5s forwards, border-right-move 1s ease 2.5s + 0.5s forwards, border-bottom-move 1s ease 2.5s + 0.5s forwards, border-left-move 1s ease 2.5s + 0.5s forwards;
+                }
+                &:nth-child(2) {
+                    animation: border-top-move 1s ease 2.5s + 0.8s forwards, border-right-move 1s ease 2.5s + 0.8s forwards, border-bottom-move 1s ease 2.5s + 0.8s forwards, border-left-move 1s ease 2.5s + 0.8s forwards;
+                }
+                &:nth-child(3) {
+                    animation: border-top-move 1s ease 2.5s + 1.1s forwards, border-right-move 1s ease 2.5s + 1.1s forwards, border-bottom-move 1s ease 2.5s + 1.1s forwards, border-left-move 1s ease 2.5s + 1.1s forwards;
+                }
+                &:nth-child(4) {
+                    animation: border-top-move 1s ease 2.5s + 1.4s forwards, border-right-move 1s ease 2.5s + 1.4s forwards, border-bottom-move 1s ease 2.5s + 1.4s forwards, border-left-move 1s ease 2.5s + 1.4s forwards;
+                }
+            }
+        }
+    }
+}

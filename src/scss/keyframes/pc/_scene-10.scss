@@ -1,0 +1,28 @@
+@keyframes show-1 {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes show-2 {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes show-last {
+    from {
+        transform: translateY(100%);
+        border-radius: 50%;
+    }
+    to {
+        transform: translateY(0%);
+        border-radius: 0;
+    }
+}
